@@ -3,21 +3,42 @@
   <head>
     <title>Ticket ordering for School of rock</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="page-top">
-      <img class="page-image" src="https://i1.sndcdn.com/artworks-000411119679-90ud0n-t500x500.jpg">
-      <h1 class="page-title">School of Rock <a href="register.html">Register</a></h1>
+      <h1 class="page-title">School of Rock</h1>
+      <div class="dropdown" data-dropdown>
+        <button class="link menu" data-dropdown-button>Register</button>
+        <div class="dropdown-menu">
+          <div class="user-input">
+            <form name="new_attendee" action="register.php" method="POST" autocomplete="off" id="myForm">
+              <div class="user-input">
+                First name :<br>
+                <input class="user-input-boxes" type="text" name="FIRST-NAME" autocomplete="false" required /><br>
+                Last name :<br>
+                <input class="user-input-boxes" type="text" name="LAST-NAME" autocomplete="false" required /><br>
+                Email :<br>
+                <input class="user-input-boxes" type="email" name="mail" autocomplete="false" required><br>
+                Date of birth :<br>
+                <input class="user-input-boxes" type="date" name="DOB" style="text-align:center;" required /><br><br>
+                <button type="submit" class="user-input-button">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="content">
       <p>The School of Rock event is coming to School Thursday week 8. It will contain performances from fire eagle, Spinning Rocks, and Sebastian.
       These bands will play a mixture of their best sellers and some original songs.</p>
       <div class="quotes">
-          <p class="quote">
-          The experience of the event is remarkable and I would recommend to anyone interested in indie music. 9/10
-          </p><p style="text-align:right; padding:0;"><small><small>-John 2021</small></small></p>
+        <p class="quote">
+        The experience of the event is remarkable and I would recommend to anyone interested in indie music. 9/10
+        </p><p style="text-align:right; padding:0;"><small><small>-John 2021</small></small></p>
       </div>
     </div>
   </body>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +14,7 @@
     $last_name = $conn->real_escape_string($_POST['LAST-NAME']);
     $email = $conn->real_escape_string($_POST['mail']);
 
-    $sql = "INSERT INTO attendees VALUES (uuid(), '$first_name', '$last_name', '$email', '$dob')";
+    $sql = "INSERT INTO attendees VALUES ('', '$dob', '$first_name', '$last_name','$email')";
     if(!mysqli_query($conn, $sql)){
         echo "ERROR: $sql. " . mysqli_error($conn);
         die();
@@ -21,6 +22,10 @@
 
     $conn->close();
 ?>
-<meta http-equiv = "refresh" content = "3; url = index.html" />
+  <div class="page-top">
+    <img class="page-image" src="https://i1.sndcdn.com/artworks-000411119679-90ud0n-t500x500.jpg">
+    <h1 class="page-title">School of Rock <a href="register.html">Register</a></h1>
+  </div>
+  <h1 class='contents'>You are succsesfully connected!</h1>
 </body>
 </html>
