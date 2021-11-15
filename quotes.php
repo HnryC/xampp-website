@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,25 +6,21 @@
   </head>
 <body>
 <?php
-    require("connect.php");
+require("connect.php");
 
-    $dob = $conn->real_escape_string($_POST['DOB']);
-    $first_name = $conn->real_escape_string($_POST['FIRST-NAME']);
-    $last_name = $conn->real_escape_string($_POST['LAST-NAME']);
-    $email = $conn->real_escape_string($_POST['mail']);
+$rating = $conn->real_escape_string($_POST['rating']);
+$first_name = $conn->real_escape_string($_POST['first-name']);
+$last_name = $conn->real_escape_string($_POST['last-name']);
+$review = $conn->real_escape_string($_POST['quote']);
 
-    $sql = "INSERT INTO attendees VALUES ('', '$dob', '$first_name', '$last_name','$email')";
-    if(!mysqli_query($conn, $sql)){
-        echo "ERROR: $sql. " . mysqli_error($conn);
-        die();
-    }
+$sql = "INSERT INTO quotes VALUES (uuid(), '$rating', '$review', '$first_name', '$last_name')";
+if(!mysqli_query($conn, $sql)){
+    echo "ERROR: $sql. " . mysqli_error($conn);
+    die();
+}
 
-    $conn->close();
+$conn->close();
 ?>
-  <div class="page-top">
-    <img class="page-image" src="https://i1.sndcdn.com/artworks-000411119679-90ud0n-t500x500.jpg">
-    <h1 class="page-title">School of Rock <a href="register.html">Register</a></h1>
-  </div>
-  <h1 class='contents'>You are succsesfully connected!</h1>
+<meta http-equiv = "refresh" content = "3; url = index.php" />
 </body>
 </html>

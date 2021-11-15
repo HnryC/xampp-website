@@ -35,11 +35,25 @@
         <div class="content">
             <p>The School of Rock event is coming to School Thursday week 8. It will contain performances from fire eagle, Spinning Rocks, and Sebastian.
             These bands will play a mixture of their best sellers and some original songs.</p>
-            <div class="quotes">
-                <p class="quote">
-                The experience of the event is remarkable and I would recommend to anyone interested in indie music. 9/10
-                </p><p style="text-align:right; padding:0;"><small><small>-John 2021</small></small></p>
-            </div>
+            <h1>
+            Testemonies for the Battle of the Bands concert.
+            </h1>
+<?php
+require('connect.php');
+$sql = "SELECT quote,rating,firstName,lastName FROM quotes";
+$result=mysqli_query($conn, $sql);
+if(!$result){
+    echo "ERROR: $sql. " . mysqli_error($conn);
+    die();
+}
+$arr=$result -> fetch_all(MYSQLI_ASSOC);
+foreach ($arr as $val) {
+    echo "<div class='quotes'><div class='quote'> $val[quote]<br>$val[rating]/10 </div><p style='text-align:right; padding:0;'>
+        <small><small>-$val[firstName] $val[lastName]</small></small></p></div>";
+}
+$result -> free_result();
+$conn -> close();
+?>
         </div>
     </body>
 </html>
