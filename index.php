@@ -35,9 +35,38 @@
         <div class="content">
             <p>The School of Rock event is coming to School Thursday week 8. It will contain performances from fire eagle, Spinning Rocks, and Sebastian.
             These bands will play a mixture of their best sellers and some original songs.</p>
-            <h1>
+            <h1 style="display:inline">
             Testemonies for the Battle of the Bands concert.
             </h1>
+                <div class="dropdown" data-dropdown style="display:inline">
+                <button class="link menu" data-dropdown-button>Write a review</button>
+                <div class="dropdown-menu">
+                    <form name="new_attendee" action="quotes.php" method="POST" autocomplete="off" id="myForm">
+                        <div class="user-input">
+                            First name :<br>
+                            <input class="user-input-boxes" type="text" name="first-name" autocomplete="false" required /><br>
+                            Last name :<br>
+                            <input class="user-input-boxes" type="text" name="last-name" autocomplete="false" required /><br>
+                            Review :<br>
+                            <input class="user-input-boxes" type="text" name="quote" autocomplete="false" required><br>
+                            Rating :<br>
+                            <select class="user-input-boxes" name="rating" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <button type="submit" class="user-input-button">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 <?php
 require('connect.php');
 $sql = "SELECT quote,rating,firstName,lastName FROM quotes";
@@ -54,6 +83,7 @@ foreach ($arr as $val) {
 $result -> free_result();
 $conn -> close();
 ?>
+            
         </div>
     </body>
 </html>
